@@ -6,6 +6,11 @@ Every push, newest first, in plain language for the GM team. Written by
 
 Entries below predate this format and list files instead.
 
+## 2026-09-16 · The game remembers Discord handles
+
+✎ Every guild member's Discord handle is now cached, so a GM can look somebody up by name instead of a numeric id  
+✎ Nothing is visible yet — this is the groundwork; the search itself comes next
+
 ## 2026-09-16 · Every deploy was failing on the radio's tag
 
 ✎ The 243.000 radio declared itself tradeable, which items always are now — the tag sync refused the whole file, and that sync runs on every deploy
