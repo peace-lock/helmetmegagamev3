@@ -176,7 +176,7 @@ bonus pays:
 > A drawback's combat penalty is at most `|pointCost| × 0.14` tiers, and less
 > when the drawback costs you things outside a fight too.
 
-0.14 is a rung: +1 tier for 7 points. Tough, Relentless and Giant all sit
+0.14 is a rung: +1 tier for 7 points. Relentless and Giant both sit
 exactly on it, and Strong is deliberately under it at 0.10 because it also does
 carry.
 

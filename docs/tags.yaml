@@ -923,7 +923,7 @@ tags:
     description: "You are physically weak and fragile. Mustering strength to fight back is almost impossible."
     fighting: { tree: both, tiers: -0.7 }
     pointCost: -5
-    conflictsWith: [pack-mule, strong, tough]
+    conflictsWith: [pack-mule, strong]
     carryBonus: -0.1
     visible: true
     purchasable: true
@@ -1182,7 +1182,7 @@ tags:
     name: Brave
     category: general
     group: general-traits
-    description: "Fearlessness isn't a choice, it's the natural state of your mind. Everything frightens you half as much."
+    description: "Fearlessness isn't a choice, it's the natural state of your mind. Mood debuffs only affect you half as much as a normal person."
     fighting: { tree: both, tiers: 0.3 }
     pointCost: 5
     purchasable: true
@@ -1316,17 +1316,6 @@ tags:
     description: "You know the Undercroft and the Underquarter very well. You're hard to follow there."
     fighting: { tree: both, tiers: 0.3, situational: true }
     pointCost: 2
-    purchasable: true
-    purchasableAfterStart: true
-
-  tough:
-    catalog: all
-    name: Tough
-    category: general
-    group: general-traits
-    description: "Pain doesn't stop you."
-    fighting: { tree: both, tiers: 1 }
-    pointCost: 7
     purchasable: true
     purchasableAfterStart: true
 
@@ -2375,7 +2364,7 @@ tags:
     name: Lucky
     category: general
     group: general-traits
-    description: "Fortune leans your way. You roll every Gambit twice and keep the better die, the Caving Die and the laboring die included."
+    description: "You roll every Gambit with advantage."
     pointCost: 15
     visible: false
     purchasable: true
@@ -2422,7 +2411,7 @@ tags:
     name: Amor Fati
     category: general
     group: general-beliefs
-    description: "Unfortunate incidents only serve to make you pleased. What would wound another man's spirits lifts yours instead, and the ordinary miseries do not touch you at all."
+    description: "Unfortunate incidents only make you more pleased."
     pointCost: 12
     visible: false
     purchasable: true
@@ -2438,7 +2427,7 @@ tags:
     name: Imperturbable
     category: general
     group: general-traits
-    description: "Your mind is unshakable. Nothing moves your mood from Fine, and there is nothing in you for a torturer to break."
+    description: "Nothing shakes you. You can't become unhappy."
     pointCost: 12
     visible: false
     purchasable: true
@@ -2454,7 +2443,7 @@ tags:
     name: Second Wind
     category: general
     group: general-traits
-    description: "You fight through it. Wounds and illness cost you nothing at all in a fight, though being at death's door still ends one."
+    description: "Wounds and pain don't affect your combat ability."
     pointCost: 6
     visible: false
     purchasable: true
