@@ -147,10 +147,8 @@ export default function RequestActionsProvider({
   // touch. canButcher is just "do you hold the Butcher tag".
   corpses = [],
   canButcher = false,
-  // The Bird. birdTargets is EVERY character, alive or dead, on purpose —
-  // and the Raven Draught reaches into the same list, for the same reason.
+  // The Bird. birdTargets is EVERY character, alive or dead, on purpose.
   hasBird = false,
-  hasRavenDraught = false,
   birdSentToday = false,
   birdTargets = [],
   birdZones = [],
@@ -522,7 +520,6 @@ export default function RequestActionsProvider({
       // `show` gates whether ActionGrid renders the icon; canSendBirdToday
       // is a `gate` on top, so the button exists but is dead post-send.
       hasBird,
-      hasRavenDraught,
       hasStepstone,
       canRead,
       canWrite,
@@ -589,7 +586,6 @@ export default function RequestActionsProvider({
       teachCostsMove,
       mySins,
       hasBird,
-      hasRavenDraught,
       hasStepstone,
       canRead,
       canWrite,

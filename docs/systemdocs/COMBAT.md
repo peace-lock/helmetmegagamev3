@@ -19,12 +19,11 @@ descriptions already say **"your melee skill counts as 2 tiers higher"**, so the
 unit is tiers, and **not one description was reworded** to make this work. Where
 a tag says a number, that number is what it does.
 
-Two are load-bearing enough to name, because the prose and the `fighting:`
+One is load-bearing enough to name, because the prose and the `fighting:`
 block are two copies of one number and they must never drift:
 
 | tag | its own words |
 |---|---|
-| `opium-high` | "Your fighting skill counts as 1 tier lower." |
 | `crossbow` | "your Ranged Fighting skill counts as half a tier higher due to its ease of use" |
 
 The crossbow read *one tier* until 2026-09-10, when the ranged rebalance (§4,

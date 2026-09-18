@@ -175,7 +175,7 @@ documents:
       - Use Gambits as normal, specifying whether you'd like to hunt a specific beast, scavenge for an item, or search a specific room.
       - Fulfill Quests, dangerous but rewarding opportunities that randomly appear in cave locations. This is where the true treasure can be found.
 
-      You can also harvest {tag:cave-fungus} in just about every location (by doing a Gambit, or just through the encounter roll). The caves hold many secrets, requiring certain character traits or knowledge to gain access to.
+      You can also harvest {tag:cave-fungus} in just about every location (by doing a Gambit, or just through the encounter roll). Eating it raw will only make you sick — it has to be brewed. The caves hold many secrets, requiring certain character traits or knowledge to gain access to.
 
   # The Merchant Update filled this in — it was an empty stub for as long as
   # the seat was unfinished. Reached by both The Company roles, so the
@@ -223,13 +223,13 @@ documents:
 
       Dangerous, strong, hulking cave dwellers. Extremely slow, in part due to their overburdened leg muscles, which barely support them.
 
-      Can be easily escaped. Killing them leaves a {tag:graga-corpse}, which a {tag:butcher} cuts a {tag:graga-sac} out of; that goes into {tag:graga-sweat} and the {tag:invisibility-potion}. The Merchant can sell Graga Sacs.
+      Can be easily escaped. Killing them leaves a {tag:graga-corpse}, which a {tag:butcher} cuts a {tag:graga-sac} out of; that goes into {tag:graga-sweat}. The Merchant can sell Graga Sacs.
 
       **Skinless**
 
       Explorers and citizens of the caves. They travel alone or in packs, eventually returning to their communities in the **Aberrant Pits**. They rarely venture up into the Caverns. They used to be people. They can be talked down.
 
-      Killing them leaves a {tag:skinless-corpse}; a {tag:butcher} cuts the {tag:skinless-brain} out of it, and that brain is the one ingredient in the {tag:dreamers-draught}. The Merchant can sell them. Note what that means: the Draught has a price, and the price is that somebody chose not to talk one down.
+      Killing them leaves a {tag:skinless-corpse}; a {tag:butcher} cuts the {tag:skinless-brain} out of it. The Merchant can sell them, dearly. Note what that means: the brain has a price, and the price is that somebody chose not to talk one down.
 
       **Aberrants**
 
@@ -252,16 +252,13 @@ documents:
 
       | Recipe | Skill | ⬢ | Needs | The ingredient comes from |
       |---|---|---|---|---|
-      | {tag:white-honey} | Brewing II | 3 | {tag:honey} and {tag:trout-heart} | the Depot's shelf, 4 ⬢, and a rare fishing catch |
+      | {tag:white-honey} | Brewing II | 3 | {tag:honey} | the Depot's shelf, 4 ⬢ |
       | {tag:graga-sweat} | Brewing II | 2 | {tag:graga-sac} | butchered from a {tag:graga-corpse} |
-      | {tag:invisibility-potion} | Brewing II | 2 | {tag:graga-sac} | butchered from a {tag:graga-corpse} |
-      | {tag:dreamers-draught} | Brewing II | 6 | {tag:skinless-brain} | butchered from a {tag:skinless-corpse} |
       | {tag:pure-luck} | Brewing II | 0 | {tag:aberrant-heart} | cut from a fallen Aberrant, hunting the Depths |
-      | {tag:raven-draught} | Brewing II | 2 | {tag:ravens-eye} | foraged while hunting |
       | {tag:honeyed-cakes} | Cooking II | 3 | {tag:honey} | the Depot's shelf, 4 ⬢ |
       | {tag:graga-hide-cloak} | Crafting | 6 | {tag:graga-sac} | butchered from a {tag:graga-corpse} |
       | {tag:minted-charm} | Smithing I | 15, 3-turn project | {tag:old-coin} | caving loot |
-      | {tag:musk-lure} | Butcher | 2 | {tag:nekker-pheromones} | butchered from a {tag:nekker-corpse} |
+      | {tag:musk-lure} | Butcher | 2, 0.25 turn | {tag:nekker-pheromones} | butchered from a {tag:nekker-corpse} |
       | {tag:autoinjector} | Brewing III | 3, 1 turn | {tag:antidote}, {tag:fever-draught} and {tag:brackenmoss} | foraged — GM-granted until the loot pass wires it |
       | {tag:last-breath} | Brewing III | 12, 3-turn project | {tag:aberrant-heart} | a fallen Aberrant — GM-granted until the loot pass wires it |
       | {tag:cybernetic-arm}, {tag:cybernetic-leg} | Brewing III | 16, 3-turn project each | {tag:cybernetic-core} | GM-granted only, nothing drops it yet |

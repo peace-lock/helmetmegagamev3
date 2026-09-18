@@ -136,7 +136,6 @@ export default function CharacterSheet({
   mySins = [],
   pendingOffers = [],
   hasBird = false,
-  hasRavenDraught = false,
   canRead = false,
   canWrite = false,
   hasSeal = false,
@@ -262,7 +261,6 @@ export default function CharacterSheet({
         confessors={confessors}
         mySins={mySins}
         hasBird={hasBird}
-        hasRavenDraught={hasRavenDraught}
         canRead={canRead}
         canWrite={canWrite}
         hasSeal={hasSeal}

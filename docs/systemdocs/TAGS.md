@@ -1530,16 +1530,15 @@ outright.
 A health tag can also be cured with no medic and no Move involved: an item
 carrying `Tag.cures` (a list of health-tag slugs) cures every one of those
 its target holds, through Consume rather than Heal — `MEDICAL.md` §1 owns
-the mechanism. `Tag.administerable` is the one-item exception (Mercy): it
-always succeeds regardless of `cures`, because it stabilizes rather than
-naming a fixed list. `Tag.curesInto` is a per-item override
+the mechanism. `Tag.administerable` is the exception: it always succeeds
+regardless of `cures`, because it stabilizes rather than naming a fixed list.
+Nothing carries it at the moment. `Tag.curesInto` is a per-item override
 (`{ curedSlug: aftermathSlug }`) for when the item's own aftermath should
 differ from the cured tag's ordinary `removesInto` — the four visible
 prosthetics use it (Wooden Leg's cure leaves `peg-leg`, not whatever Missing
 Leg's own `removesInto` would have said). None of these three fields is
-validated against `healable` — a cure item reaching a tag `healable: false`
-(Forgiveness → Shell Shocked, which no medic can treat) is deliberate, not a
-gap.
+validated against `healable` — a cure item reaching a tag `healable: false` is
+deliberate, not a gap.
 
 `Tag.administerSkill` is a different gate, and it sits on the CURING ITEM,
 not the cured tag: the skill required to apply that item to **anyone,
@@ -1659,8 +1658,8 @@ Four rules, enforced in `db/lib/tagShapes.js`:
   character already on death's door with a later clock would otherwise have the
   fatal row silently dropped and survive the close.
 - **Increased Recovery cannot stall it.** `chainReachesDying()` counts the
-  token, so Mercy slows the march but never cancels the arrival — the same rule
-  a chain into `dying` has always had.
+  token, so the status slows the march but never cancels the arrival — the same
+  rule a chain into `dying` has always had.
 
 It is deliberately **YAML-only**: the GM tag form's `expiresInto` picker lists
 real slugs and does not offer it. A field that kills with no Dying turn in

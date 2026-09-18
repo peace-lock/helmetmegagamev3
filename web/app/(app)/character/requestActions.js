@@ -56,7 +56,6 @@ import { mineRequestImpl } from "./actions/mine.js";
 import {
   birdMessageRequestImpl,
   birdReplyRequestImpl,
-  whisperRequestImpl,
   stepstoneRequestImpl,
   readPointerDeviceImpl,
 } from "./actions/misc.js";
@@ -237,10 +236,6 @@ export async function birdMessageRequest(input) {
 
 export async function birdReplyRequest(input) {
   return guarded(() => birdReplyRequestImpl(input));
-}
-
-export async function whisperRequest(input) {
-  return guarded(() => whisperRequestImpl(input));
 }
 
 export async function stepstoneRequest(input) {

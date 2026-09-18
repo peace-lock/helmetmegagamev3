@@ -6,7 +6,7 @@ const { DYING_SLUG } = require("./constants");
 const { DEAD_TOKEN } = require("./tagShapes");
 
 // Stackable tags are out of scope — a stack SHEDS (sweepExpiredStacks in db/index.js), it doesn't expire. increased-recovery (M3, TAGS.md §5c) on Infection/Wounds pushes a row's clock one turn, but never the step that would actually GRANT Dying.
-// `dead` counts here as much as `dying` does — Mercy must not be able to stall a wound that kills at its close.
+// `dead` counts here as much as `dying` does — increased-recovery must not be able to stall a wound that kills at its close.
 function chainReachesDying(expiresInto) {
   return (expiresInto ?? []).some((entry) =>
     (entry?.oneOf ?? []).some((slug) => slug === DYING_SLUG || slug === DEAD_TOKEN),
@@ -76,7 +76,7 @@ async function runTagExpiryPass(prisma, turn) {
   for (const ct of expiring) {
     if (ct.character?.status !== "ALIVE") continue;
 
-    // increased-recovery postpones this row's clock instead of progressing it, checked BEFORE the grant. Exempted when the chain could hand over Dying, so Mercy slows the march but never cancels the arrival.
+    // increased-recovery postpones this row's clock instead of progressing it, checked BEFORE the grant. Exempted when the chain could hand over Dying, so the status slows the march but never cancels the arrival.
     if (
       recoverySet.has(ct.characterId) &&
       STALLABLE_GROUP_SLUGS.has(ct.tag.group?.slug) &&

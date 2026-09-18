@@ -10,8 +10,8 @@
 //  - A specialism that pays on the wrong weapon makes somebody quietly better
 //    than the catalog says, and nobody reports being too strong.
 //
-// The four canon values at the bottom are the sharpest case: tipsy, wasted,
-// hangover and opium-high state their own tier shift in prose players read.
+// The canon values at the bottom are the sharpest case: tipsy, wasted and
+// hangover state their own tier shift in prose players read.
 // The prose and the `fighting:` block are two copies of one number, and this
 // is what stops them drifting.
 const test = require("node:test");

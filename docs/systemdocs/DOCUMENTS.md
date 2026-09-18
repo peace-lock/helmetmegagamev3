@@ -74,8 +74,8 @@ disagree with itself about who may see what.
 
 **A recipe that NAMES an ingredient the reader may not see is dropped whole**
 (`redactWithheldRecipes()` in `web/lib/recipeCatalog.js`), rather than shown
-with the name blanked. Dreamer's Draught needs a Skinless Brain and Moonshine
-needs Godflesh, both `catalog: gm`; those are meant to be found in play, or
+with the name blanked. Moonshine needs Godflesh and White Honey needs Honey,
+both `catalog: gm`; those are meant to be found in play, or
 worked out by handing something strange to a good crafter, and a redacted line
 advertises the secret as loudly as the name would. The pass clears
 `requirementItems` on the shared row, so a withheld ingredient cannot resurface
@@ -98,9 +98,9 @@ through `clientTagCatalog` in `web/app/(app)/character/page.js`. Only the buy
 menus judge on `catalogVisibility` alone; the other two let holding the skill
 count, so a Forger reads their own recipe everywhere.
 
-A `group:` ingredient names no tag and hides nothing. Miasma asks for "a
+A `group:` ingredient names no tag and hides nothing. The Bone Mask asks for "a
 corpse" (`{ group: items-corpse }`) and every member of that group is
-`catalog: secret` — counting groups would erase a public brew from everyone,
+`catalog: secret` — counting groups would erase a public recipe from everyone,
 GMs included, over a line that gives away nothing.
 
 An `anyOf:` ingredient is softer still: the recipe is makeable with any one

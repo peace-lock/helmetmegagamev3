@@ -2313,14 +2313,6 @@ desires:
       anyRoles: [bum]
     cooldownTurns: 3
 
-  miasma-in-a-crowd:
-    name: Use miasma in a crowded area
-    tier: 2
-    families: [cruelty]
-    requires:
-      anyTags: [unhygienic]
-    oncePerLife: true
-
   photograph-the-supernatural:
     name: Photograph the supernatural
     tier: 2

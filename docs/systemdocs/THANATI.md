@@ -196,7 +196,7 @@ words where a room or a player hears anything:
 | Reflection | 1 black-robes (floor), 15 ⬢ | `shimmering-robes` on the floor (counts as robes for chanting) |
 | Rage | 1 ravenheart-red | every participant gets `rage`: every mood harm ×0, Desires locked but cruelty |
 | Judgement | 1 heart, 2 eye, a photograph, 40 ⬢; target not Pious, not on hallowed ground | target **gibbed** wherever they stand, their Location hears "… explodes into mist!", remains dropped in a random public Room there — there is no body to drop them beside |
-| Madness | 1 mindbreaker-toxin, a photograph, 15 ⬢; same target rule as Judgement | target gets `madness` for two turns; the print is spent |
+| Madness | 1 phrygian-tears, a photograph, 15 ⬢; same target rule as Judgement | target gets `madness` for two turns; the print is spent |
 | Fulfillment | nothing on the floor — but the **leader must be among the chanters**, and it fires once per game | 100 ⬢ per completed cult objective, on the room's floor; room hears "Bounty! What success!" |
 | Ascension | 1 barons-scepter, 1 bishops-mitre, 250 ⬢, eight chanters | arms the end of the world for two turns' time and tells every zone where it is being planned |
 

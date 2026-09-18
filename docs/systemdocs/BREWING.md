@@ -17,14 +17,13 @@ ingredient in the tables below is a real tag that the craft SPENDS**
 (`Tag.requirementItems`, `CORPSES.md` §8). Three units of a brew take three
 units of its ingredient, the same way they take three lots of ⬢. There is no
 prose ingredient left in brewing: the ones nothing could ever track were either
-turned into real tags (`nightshade-herb`, `aberrant-heart`, `ravens-eye`) or
+turned into real tags (`aberrant-heart`, `ravens-eye`) or
 dropped, with the ⬢ raised to be the gate instead.
 
-**Two exceptions, both kept rather than spent.** `miasma` matches any corpse
-and `bone-mask` cuts one, and both only need the body *to hand* — you bottle
-the smell, you don't use the body up. That is what a `group:` ingredient means
-and the only thing it can mean: a group names no single stack to take a unit
-out of. Everything else spends.
+**One exception, kept rather than spent.** `bone-mask` matches any corpse and
+only needs the body *to hand*. That is what a `group:` ingredient means and the
+only thing it can mean: a group names no single stack to take a unit out of.
+Everything else spends.
 
 **Ingredients go in when the work STARTS**, the rule the ⬢ already lived
 under — so a multi-turn project pays up front and abandoning it keeps
@@ -54,67 +53,44 @@ medicines below that used to be a Medical crafter's work (§3a).
 
 Every ingredient below is **spent** unless the row says *kept*. The Turns
 column is the recipe's own `turnsCost`, a decimal share of a turn's work — so
-four 0.25 Alcohol fill one Routine and a spare quarter takes more brewing; a
-*max N/turn* on a 0-turn row is a `perTurn` ration, the hard cap kind
-(CRAFTING.md §2).
+four 0.25 Alcohol fill one Routine and a spare quarter takes more brewing. A
+0 there is a free craft: no Move at all (CRAFTING.md §2).
 
 | Brew | ⬢ | Turns | Ingredient | Consumes into |
 |---|---|---|---|---|
-| `bliss` | 0 | 0 (max 2/turn) | `cave-fungus` | `euphoric`, `high` (3t) |
-| `feces` | 0 | 0 (max 2/turn) | — | — |
+| `bliss` | 0 | 0.5 | `cave-fungus` | `euphoric`, `high` (3t) |
 | `alcohol` | 2 | 0.25 | — | `tipsy` (and up the ladder — §5a) |
 | `moonshine` | **0** | 1 | `godflesh` | `tipsy` (ladder, §5a), `blind-drunk` (2t), `damaged-vision` |
-| `miasma` | 2 | 1 | **a corpse** — *kept* | — |
-| `poppy` | 2 | 0.5 | `poppy-pods` | `opium-high` |
-| `molotov-cocktail` | 2 | 0 (max 2/turn) | `alcohol` | — |
+| `molotov-cocktail` | 2 | **0** — free | `alcohol` | — |
 | `cleaning-powder` | 2 | 0.5 | — | — |
+| `antidote` | 4 | 0.5 | — | — |
 | `cat` | 3 | 1 | `alcohol` | `night-vision` (1t) |
-| `nightshade` | 3 | 1 | `nightshade-herb` | — |
 
 ## 3. Brewing II
 
 | Brew | ⬢ | Turns | Ingredient | Consumes into |
 |---|---|---|---|---|
 | `pure-luck` | 0 | 1 | `aberrant-heart` | `aberrant-luck` |
+| `flawless-skin` | 2 | 0.25 | — | `otherworldly-beauty` |
 | `graga-sweat` | 2 | 1 | `graga-sac` | `brutish-strength` |
 | `deadeye-drops` | 2 | 1 | `cave-fungus` | `increased-accuracy` |
-| `mercy` | 2 | 0.5 | `cave-fungus` | `increased-recovery` |
-| `mindbreaker-toxin` | 2 | 1 | `cave-fungus` | `hallucinating` |
-| `invisibility-potion` | 2 | 1 | `graga-sac` | `invisible` |
-| `raven-draught` | 2 | 1 | `ravens-eye` | — |
 | `ravenheart-red` | 4 | 0.5 | `alcohol` | `tipsy` (and up the ladder — §5a) |
-| `distilled-coca` | 4 | 1 | `coca-leaves` | `stimulant-high` |
-| `advanced-poppy` | 4 | 1 | `poppy` | `pain-immunity` |
-| `phrygian-tears` | 4 | 2 | `nightshade` + `cave-fungus` | — |
-| `white-honey` | **3** | 1 | `honey` + `trout-heart` | — |
+| `mulligan-potion` | 8 | 0.5 | — | — |
+| `phrygian-tears` | 4 | 1 | `cave-fungus` | `phrygian-toxin` |
+| `white-honey` | **3** | 1 | `honey` | — |
 | `purifier` | 6 | 1 | `cave-fungus` | — |
-| `dreamers-draught` | 6 | 1 | `skinless-brain` | — |
-| `forgiveness` | 8 | 1 | `poppy` | — |
-| `flawless-skin` | 8 | 1 | — | `otherworldly-beauty` |
 
-Three recipes lost a prose ingredient and pay in ⬢ instead, because the
-ingredient was the whole gate: `white-honey` 2 → **6** (it cures a poisoning),
-and `forgiveness` /
-`flawless-skin` keep their 8, which was already doing the work. White Honey
-has since regained a real gate twice over — it spends a `honey` (a gm-catalog
-Depot import, which also makes it one of the HIDDEN recipes: off the Recipes
-tab, out of the Craft menu until the brewer holds the ingredients) and, since
-the trout's heart came back as a loot-pass fishing find, a `trout-heart` too.
-Its ⬢ eased 6 → **3** with the second ingredient (Chris 2026-09-07): the rare
-catch is most of the price of the cure now, and 6 on top of both was a
-triple gate. Its own `cures:` list (the medical pass, TAGS.md §5c) is
-`poisoned`, `envenomated`, `phrygian-toxin` — not literally every poison in
-the catalog (nightshade's choking and soporific's asleep aren't on it). Its
-player-facing description says as much ("not every toxin bends to it") since
-the medical pass truthed it.
-`phrygian-tears` is the most potent poison in the game and brews from
-poisons now: a bottle of `nightshade` distilled further, cut with
-`cave-fungus` — both public, so the recipe stays in the book.
-`forgiveness` changed effect the same day: it CURES {shell-shocked} — the
-drinker forgets the event that broke them — and spends a `poppy`, the
-second basic→skilled chain beside `advanced-poppy`. Shell Shocked's own
-copy says no MEDIC can treat it, which stays true: the still is the one
-door out.
+White Honey spends a `honey` — a gm-catalog Depot import, which makes it one
+of the HIDDEN recipes: off the Recipes tab, out of the Craft menu until the
+brewer holds the jar. Its own `cures:` list (the medical pass, TAGS.md §5c) is
+`poisoned`, `envenomated`, `phrygian-toxin` and `choking` — not literally every
+poison in the catalog. `phrygian-tears` is the most potent poison in the game
+and is `cave-fungus` distilled a great deal further than Bliss goes; it is
+public, so the recipe stays in the book.
+
+**Nothing cures {shell-shocked} any more.** Forgiveness was the one door out
+and it is gone with the poppy chain. Shell Shocked's own copy already says no
+MEDIC can treat it; there is now no still that can either.
 
 `gunpowder-grenade` (now named **Crude Grenade**) left this table
 altogether: it is smith's work now (Smithing II, `items-weapons`),
@@ -173,20 +149,14 @@ either the brewer's sheet carries the thing, or the craft is refused.
 
 | Tag | Where it comes from | How the recipe uses it |
 |---|---|---|
-| `cave-fungus` | foraged in the caves — never crafted, since the pass that took its 0-⬢ recipe away. Eaten raw it gives `high` (2t). | spent |
+| `cave-fungus` | foraged in the caves — never crafted, since the pass that took its 0-⬢ recipe away. Eaten raw it only makes you `nauseous`; the high is what boiling it into Bliss is for. | spent |
 | `alcohol` | brewed, one tier down (also what `ravenheart-red` is made of) | spent |
-| `poppy` | brewed, one tier down | spent |
-| `nightshade` | brewed, one tier down — distilled further into `phrygian-tears` | spent |
 | `nekker-pheromones` | **butchered** out of a {Nekker Corpse} | spent |
 | `graga-sac` | **butchered** out of a {Graga Corpse} | spent |
-| `skinless-brain` | **butchered** out of a {Skinless Corpse} | spent |
+| `skinless-brain` | **butchered** out of a {Skinless Corpse} | sold, not brewed |
 | `godflesh` | hauled out of the marshes (`FACTORY.md`) | spent |
-| `nightshade-herb` | forageable — the loot pass wires it | spent |
-| `poppy-pods` | forageable — the loot pass wires it | spent |
-| `coca-leaves` | forageable — the loot pass wires it | spent |
 | `aberrant-heart` | off a fallen Aberrant | spent |
-| `ravens-eye` | forageable — the loot pass wires it | spent |
-| `trout-heart` | forageable — the loot pass wires it (a fishing find) | spent |
+| `ravens-eye` | forageable — the loot pass wires it | a Trinket inlay only; no recipe spends one |
 | `honey` | Depot import, gm-catalog — the White Honey link is a secret | spent |
 | `tea` / `sweets` / `honey` | Depot imports; the cook picks one | spent (`anyOf`) |
 | **a corpse** (`items-corpse` group) | died, or was killed | **kept** |
@@ -200,22 +170,17 @@ only had to make the slugs exist. Until then they arrive by GM grant.
 
 `skinless-brain` is the one ingredient that is also a moral problem. A Graga is
 a beast; the Skinless used to be people and, per the Caves brief, can be talked
-down. Making an expensive Skilled brew means someone decided not to — and the
-brain is spent now, so it is a decision taken once per bottle rather than once
-ever. That is the recipe, not an oversight, but it is worth a GM knowing it is
-there before a player finds it.
+down. No recipe spends one any more, but the
+Merchant still buys them dearly, which asks the same question of whoever
+carries one in.
 
 **`nekker-pheromones` is no longer brewed at all.** It is butchered out of a
 Nekker Corpse; it lost its `craftable` flag and its row in §2.
 
-**What used to be prose, and where it went.** A forest herb, an Aberrant's
-heart and a raven's eye became `nightshade-herb`, `aberrant-heart` and
-`ravens-eye`. A willing lover's blood, someone's tears and a lock of Nobility
-hair are simply gone, with the ⬢ carrying the gate instead (§3). The rainbow
-trout's heart went the same way and then came back: it is `trout-heart` now, a
-loot-pass fishing find, spent beside the `honey` White Honey's gate had been
-re-hung on in the meantime. Poppy and Distilled Coca, which never had a prose
-ingredient at all, now spend `poppy-pods` and `coca-leaves`. The old argument for keeping them — that getting one should be a
+**What used to be prose, and where it went.** An Aberrant's heart and a raven's
+eye became `aberrant-heart` and `ravens-eye`. A willing lover's blood, someone's
+tears and a lock of Nobility hair are simply gone, with the ⬢ carrying the gate
+instead (§3). The old argument for keeping them — that getting one should be a
 scene rather than a purchase — held for the social ones and never held for the
 huntable ones, where there was no player on the other side, just a GM ruling on
 whether somebody's fishing trip counted.
@@ -242,20 +207,21 @@ lives in. Costs are decimals now and that column is a ration and nothing else.
 | `honeyed-cakes` | 0.25 | — |
 | `fine-meal` | 0.25 | — |
 | `trail-ration` | 0.25 | — |
-| `poppy` | 0.5 | — |
+| `flawless-skin` | 0.25 | — |
+| `musk-lure` | 0.25 | — |
+| `bone-mask` | 0.25 | — |
 | `cleaning-powder` | 0.5 | — |
-| `mercy` | 0.5 | — |
+| `antidote` | 0.5 | — |
 | `ravenheart-red` | 0.5 | — |
-| `bliss` | 0 | 2 |
-| `feces` | 0 | 2 |
-| `molotov-cocktail` | 0 | 2 |
-| `bone-mask` | 0 | 1 |
+| `bliss` | 0.5 | — |
+| `mulligan-potion` | 0.5 | — |
+| `molotov-cocktail` | **0** — free | — |
 
-`bone-mask` is not a brew, but it is the other recipe the ration exists for: 0
-turns and a `butcher` gate mean it needs its own `perTurn` or one corpse
-would mint masks forever. Its skill derives a `butcher` family now
-like any other (CRAFTING.md §2a), so a mask past the ration spills into the
-Move instead of walling.
+**The ration column is empty now.** Every recipe that used to read "up to N a
+turn" costs a quarter of a Move instead — the ration was the last of the old
+system, and a quarter-Move says the same thing without a second mechanism.
+`molotov-cocktail` is the one free craft left: no Move, no cap, and the bottle
+of alcohol is the whole price.
 
 **The ⬢ cost is per unit, and it multiplies.** Three alcohols in one turn cost
 6 ⬢, not 2. Every yield row in the document carries an `{info:…}` tooltip
@@ -318,8 +284,8 @@ components (`TagRail.js`, `RequestActionsProvider.js`) and pulling
 them in sync with `db/lib/constants.js` if either ever changes.
 
 Brewing files its Routine through the Craft button, same as any other
-craftable tag — `phrygian-tears` and `dreamers-draught` no longer carry
-`gambit: true`, since crafting is never a Gambit (`CRAFTING.md`).
+craftable tag — `phrygian-tears` no longer carries `gambit: true`, since
+crafting is never a Gambit (`CRAFTING.md`).
 
 ## 6. Where a player reads this
 

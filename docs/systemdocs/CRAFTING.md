@@ -74,7 +74,7 @@ of it:
   `quantity` units per craft, taken off the crafter's own sheet **when the
   work starts** — so a multi-turn project pays up front and `continueCraft`
   does not re-check them. A `group:` entry is *kept* instead: any corpse to
-  hand satisfies Miasma, and none is used up. An `anyOf:` entry is a spend the
+  hand satisfies the Bone Mask, and none is used up. An `anyOf:` entry is a spend the
   player chooses, posted from the dialog as `ingredientChoice` and re-checked
   server-side for membership and possession. A `placement:` recipe may not
   carry `items` at all; the sync refuses the pair.
@@ -278,14 +278,11 @@ up.
 true`) is the escape hatch from the ingredient gate above** —
 `isNonPublicRecipe` checks it first, before the ingredient walk, and lists
 the recipe regardless of what its ingredient's group currently contains.
-Miasma is the reason it exists: it names `group: items-corpse`, and that
-group is never fully public — `nekker-corpse`, `graga-corpse` and
-`skinless-corpse` are all `catalog: secret` and always sit in it — so the
-gate above never opened for a player who had never held a body, for a
-recipe that is supposed to be common knowledge once you know Brewing
-I. Bone Mask and Death Mask name the same group and do **not** set
-the flag: for those two, "you have to have held a corpse" is the intended
-discovery mechanic, not a side effect worth working around.
+`maggot-milk` is what it is for now: any Brewer should know you can squeeze a
+maggot, without having had to find one first. Bone Mask and Death Mask name
+`group: items-corpse` and do **not** set the flag: for those two, "you have to
+have held a corpse" is the intended discovery mechanic, not a side effect worth
+working around.
 
 ## 3. Projects
 

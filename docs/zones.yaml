@@ -1021,7 +1021,6 @@ zones:
               items:
                 obol: 32
                 gladius: 1
-                advanced-poppy: 1
                 gladiator-helmet: 1
       forest-cliffs:
         name: Cliffs
@@ -1334,11 +1333,6 @@ zones:
             description: >-
               A warm cavern opens unexpectedly around a spring, filled with pale ferns, luminous moss, and tiny white flowers growing beneath shafts of light that descend through cracks far overhead. The air is humid and still, carrying the smell of wet earth in stark contrast to the freezing mountain outside.
             access: [caving]
-            stash:
-              items:
-                nightshade-herb: 2
-                poppy-pods: 2
-                coca-leaves: 2
 
       hills-underlocks:
         name: Underlocks
@@ -1454,8 +1448,6 @@ zones:
             stash:
               items:
                 mulligan-potion: 1
-                invisibility-potion: 1
-                mindbreaker-toxin: 1
                 bliss: 1
                 tea: 2
                 obol: 10
@@ -1565,7 +1557,6 @@ zones:
               items:
                 paper: 8
                 obol: 23
-                distilled-coca: 1
       hills-cliffs:
         name: Cliffs
         attributes:
@@ -1619,7 +1610,6 @@ zones:
             stash:
               items:
                 flooded-crate: 1
-                poppy-pods: 1
           village-old-hut:
             name: Old Hut
             description: >-
@@ -1629,7 +1619,6 @@ zones:
               items:
                 obol: 2
                 rat: 1
-                poppy-pods: 1
       factory:
         name: Godard Factory
         indoors: true

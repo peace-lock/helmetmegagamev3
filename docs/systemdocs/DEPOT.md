@@ -654,13 +654,12 @@ anybody needs.
 station still takes 40%, which is margin enough that round-tripping a rifle
 for its own sake is a slow way to lose money.
 
-Six wares carry a **wage floor** instead: `alcohol`, `distilled-coca`,
-`trapping-gear`, `phrygian-tears`, `gladiator-helmet` and
-`workshop-equipment`. Each is craftable or brewable, so its `sellablePrice` is
-what a *maker* earns under §4's bands, not what a reseller gets back. 60% is a
-raise for most of them and would have been a pay cut for `alcohol` (4) and
-`distilled-coca` (10), so those two keep the higher number. The rule is that
-the wage never goes down.
+Five wares carry a **wage floor** instead: `alcohol`, `trapping-gear`,
+`phrygian-tears`, `gladiator-helmet` and `workshop-equipment`. Each is
+craftable or brewable, so its `sellablePrice` is what a *maker* earns under
+§4's bands, not what a reseller gets back. 60% is a raise for most of them and
+would have been a pay cut for `alcohol` (4), so that one keeps the higher
+number. The rule is that the wage never goes down.
 
 That rule bites on a rebalance, not just on the original pricing: re-price a
 rung and check this list before shipping, since a wage floor can never drop.
@@ -694,7 +693,6 @@ buying one mid-game is still a real decision.
 | `cigarette` | 5 | 3 | A Mudghara import, and the pricier vice — it costs more than a `tea` or a `coffee`. |
 | `silver` | 14 | 10 | What `silver-knife`/`silver-spear` spend (`SMITHING.md`). Prospecting's to source (`MINING.md` §3b); this is the fallback. Repriced up from 8/5 on 2026-09-18 so an uncommon find is not worth less than an ingot smelted from ultracommon rock. |
 | `boombox` | 11 | 7 | |
-| `distilled-coca` | 11 | 10 | Also a Skilled brew, at 4 ⬢ — see §4 |
 | `sake` | 11 | 7 | Consumes into `tipsy`. Under `ravenheart-red`'s 14 — its only price, since it has no `depotPrice` of its own |
 | `whip` | 11 | 7 | Equippable |
 | `censer` | 12 | 7 | |
@@ -748,12 +746,12 @@ that it has no trouble getting either — it is Ravenheart that has trouble
 hauling one up out of the Caves.
 
 **Almost nothing here is `craftable`.** That is the point: if Ravenheart could
-make it, importing it would be pointless. The three exceptions are all brews —
-`alcohol`, `distilled-coca` and `phrygian-tears` — which he stocks for a
-Merchant who would rather not wait on a brewer. Each is priced well above what
-brewing one costs, and that gap is the market a brewer sells into (§4).
+make it, importing it would be pointless. The two exceptions are both brews —
+`alcohol` and `phrygian-tears` — which he stocks for a Merchant who would
+rather not wait on a brewer. Each is priced well above what brewing one costs,
+and that gap is the market a brewer sells into (§4).
 
-**`iron` is the fourth**, and the first that isn't a brew — a
+**`iron` is the third**, and the first that isn't a brew — a
 smith with no Prospector bringing up ore can buy the ingot outright instead
 of smelting it himself. Same reasoning as the three brews: priced above what
 the `smithing` recipe itself costs (`SMITHING.md`), so the Merchant is a
@@ -788,7 +786,7 @@ Four bands, about 106 tags in total:
 
 | Band | Priced at | Examples |
 |---|---|---|
-| Brews | build cost + margin; the batch recipes get a thinner one | `ravenheart-red` 14, `forgiveness` 18, `bliss` 3, `dreamers-draught` **60** |
+| Brews | build cost + margin; the batch recipes get a thinner one | `ravenheart-red` 14, `white-honey` 26, `purifier` 14, `bliss` 3 |
 | Smithed gear | its own `resourceCost` + a turn-scaled markup — see below | Dead Simple 4, Simple 9 (its four 0.25-turn pieces 8), Moderate 21, High Quality 42, Exceptional 61, Gunpowder 59 (Bore Pistol 45) |
 | Cave and bulk goods | unchanged from the Caves Update | `graga-sac` 8, `cave-fungus` 3, `saltpeter` 3, `skinless-brain` **25** |
 | Factory goods | a day's output at ~3× a good farming day | `squeeze` 7 a cube — 8 cubes is a shift (`FACTORY.md` §6). Buy-only in the other direction: the station sells nobody a cube |
@@ -809,11 +807,10 @@ list, `THANATI_WARES`, with one price per ware, spent out of the hideout room's
 floor and the buyer's pockets — ⬢ and obols together, since an obol is one ⬢.
 No `depotPrice` on any of it, and nothing there ever reaches the station.
 
-**Three prices sit off the bands above on purpose.** `skinless-brain` is 25 —
+**Two prices sit off the bands above on purpose.** `skinless-brain` is 25 —
 clear of a Graga Sac's 8, without standing level with a whole day of industry
 (it is the only ingredient in the catalog that has to be talked out of being a
-person first). `dreamers-draught` is 60, above its own ingredient, because the
-point of that recipe is that the brain is the cheap part. `painting` is 41 —
+person first). `painting` is 41 —
 over its 4 turns that is ~10 ¢/turn, still the best rate a craftable pays.
 
 **`human-flesh` is deliberately not sellable at all.** Butchering is free and
@@ -918,10 +915,10 @@ make 10 ¢ a turn off it — and it is the one thing on this planet an offworlde
 actually wants. The tag's own description has called it "Ravenheart's only
 export" since long before any of this was wired up.
 
-**Two brews are on both tables.** `phrygian-tears` and `distilled-coca` cost 4 ⬢
-to brew and 40 and 12 to import. That is not an error and it is not a loophole:
-the import price is what you pay for having no brewer, and the gap is exactly
-the market a brewer sells into.
+**One brew is on both tables.** `phrygian-tears` costs 4 ⬢ to brew and 32 to
+import. That is not an error and it is not a loophole: the import price is what
+you pay for having no brewer, and the gap is exactly the market a brewer sells
+into.
 
 A buy price at or below a sell price would let anyone with a licence print coin
 in a loop. `db/lib/syncTags.js` warns on every sync if that ever inverts.

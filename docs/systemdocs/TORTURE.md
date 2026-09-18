@@ -100,10 +100,8 @@ Hungry against 4. They held out.`
 ## 4. What it does to the victim
 
 **Mood.** `−40`, kind `TORTURED`, success or failure, through `applyMood`
-inside the action's transaction (MOOD.md §3). Two statuses zero it —
-`pain-immunity` and `opium-high`, both ×0 in `MULTIPLIERS` — and a 0 beats
-Brave's ×0.5. Both are two-turn statuses, so a torturer who waits a day gets
-the full hit.
+inside the action's transaction (MOOD.md §3). One status zeroes it — `rage`,
+×0 in `MULTIPLIERS` — and a 0 beats Brave's ×0.5.
 
 **Depressed**, on a success only. Granted with `source: EVENT` and no expiry,
 the same door Bind's `bound` and Crucify's `crucified` walk through. Depressed
@@ -232,8 +230,8 @@ two dear ones — a cultist and the Merchant want the same organs.
 
 **Mood −50**, kind `MUTILATED`, on a living subject only — a corpse feels
 nothing, and `applyMood` on a dead row would move a dial nobody reads. There
-are no ×0 rows for it: `pain-immunity` and `opium-high` zero `TORTURED` on
-purpose, and losing a hand is not a question of pain tolerance.
+is no ×0 row for it beyond `rage`, which zeroes every kind: losing a hand is
+not a question of pain tolerance.
 
 **The DM** is unattributed like every other request that acts on someone else —
 *"Somebody cut off your hand."*, or *"Somebody has been cutting pieces off your
@@ -321,10 +319,9 @@ tag, both `source: EVENT`, permanent for Brand and on `aching`'s own clock for
 the pain.
 
 **Mood −40**, kind `BRANDED`, through `applyMood` inside the action's
-transaction (MOOD.md §3). The same two statuses that zero `TORTURED` zero
-this too — `pain-immunity` and `opium-high`, both ×0 in `MULTIPLIERS`
-(`db/lib/mood.js`) — because it's the same kind of harm: a hot iron held to
-someone who can't stop it.
+transaction (MOOD.md §3). The same status that zeroes `TORTURED` zeroes this
+too — `rage`, ×0 in `MULTIPLIERS` (`db/lib/mood.js`) — because it's the same
+kind of harm: a hot iron held to someone who can't stop it.
 
 **The DM**, unattributed like every other request that acts on somebody else:
 *"Somebody held a hot iron to you. It'll never fade."*

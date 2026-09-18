@@ -173,12 +173,6 @@ const MULTIPLIERS = Object.freeze([
   { slug: "claustrophobia", kinds: ["CAVE"], factor: 2 },
   { slug: "teratophobia", kinds: ["CAVE_TROUBLE"], factor: 3 },
   { slug: "pyrophobia", kinds: ["WOUND"], factor: 3, when: (ctx) => Boolean(ctx?.burn) },
-  // Pain you cannot feel is not frightening. Both are two-turn statuses, so a
-  // torturer who waits a day gets the full −40 (db/lib/torture.js). BRANDED
-  // is the same kind of harm — a hot iron held to someone who can't stop it —
-  // so it gets the same two immunities.
-  { slug: "pain-immunity", kinds: ["TORTURED", "BRANDED"], factor: 0 },
-  { slug: "opium-high", kinds: ["TORTURED", "BRANDED"], factor: 0 },
   // The Rite of Rage (docs/systemdocs/THANATI.md §4): "Rage people do not
   // become afraid." Every kind, permanently.
   { slug: "rage", kinds: "*", factor: 0 },

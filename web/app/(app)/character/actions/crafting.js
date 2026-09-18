@@ -182,7 +182,7 @@ export async function resolveIngredientSlots(character, tag, quantity, ingredien
 }
 
 // requirementItems: most entries are SPENT `quantity` per craft (× an entry's own `count` multiplier); `keep` is a
-// hold-check instead (a body has its own lifecycle — a second Miasma bottled over the same corpse is still fine); `group` is always kept and is the only way to name a corpse written at death; `anyOf` is a spend the PLAYER picks via `ingredientChoice`, and the membership check here is what makes the dialog a hint, not a lock.
+// hold-check instead (a body has its own lifecycle — a second Bone Mask over the same corpse is still fine); `group` is always kept and is the only way to name a corpse written at death; `anyOf` is a spend the PLAYER picks via `ingredientChoice`, and the membership check here is what makes the dialog a hint, not a lock.
 function resolveRecipeItems(character, tag, quantity, ingredientChoice) {
   const items = Array.isArray(tag.requirementItems) ? tag.requirementItems : [];
   const plan = { spend: [], hold: [] };

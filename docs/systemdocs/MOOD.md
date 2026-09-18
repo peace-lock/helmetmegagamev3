@@ -384,8 +384,6 @@ Held tags scale **harm** by its kind; the factors multiply, and a 0 wins:
 | `claustrophobia` (−3) | CAVE | ×2 |
 | `teratophobia` (−2) | CAVE_TROUBLE | ×3 |
 | `pyrophobia` (−2) | WOUND, only `burned` / `severe-burns` | ×3 |
-| `pain-immunity` (status) | TORTURED, BRANDED | ×0 |
-| `opium-high` (status) | TORTURED, BRANDED | ×0 |
 | `rage` (the Rite of Rage, THANATI.md §4) | everything | ×0 |
 | `blessed` (status, 3t — a `chrism`'s anointing) | everything | ×0.5 |
 | `heartforged-blade` (**while equipped** — the first equipped-conditional rule; a caller that can't say what's equipped skips it, failing safe) | everything | ×0 |

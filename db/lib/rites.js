@@ -131,8 +131,8 @@ const RITES = [
     key: "madness",
     name: "Rite of Madness",
     minChanters: 4,
-    ingredients: [{ tag: "mindbreaker-toxin", count: 1 }, { kind: "photograph" }, { resources: 15 }],
-    ingredientsText: "1 {tag:mindbreaker-toxin}, 1 photograph of the target, 15 ⬢",
+    ingredients: [{ tag: "phrygian-tears", count: 1 }, { kind: "photograph" }, { resources: 15 }],
+    ingredientsText: "1 {tag:phrygian-tears}, 1 photograph of the target, 15 ⬢",
     description: "Overwhelms the mind of the target with thoughts of violence and hatred! They will lash out at anything and everything around them. Does not work on hallowed people or places.",
   },
   {

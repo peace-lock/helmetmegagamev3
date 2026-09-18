@@ -1,7 +1,7 @@
 // Everything not broken out into its own module: destroy/consume a tag,
 // research, claiming a Desire, changing your name, looting, bind/free/
 // crucify/torture, disguise, harm, the Godard Factory, the Bird, the
-// Raven Draught (whisper), the Stepstone, and the pointer device readout.
+// The Stepstone and the pointer device readout.
 
 import { revalidatePath } from "next/cache";
 import { after } from "next/server";
@@ -128,7 +128,6 @@ import {
   PACKAGE_MAX_LBS,
   PACKAGE_MAX_UNITS,
   PACKAGE_LABEL_MAX,
-  WHISPER_MAX,
   IMPERTURBABLE_SLUG,
   TAG_CATEGORY,
 } from "@lifeweb/db/lib/constants";
@@ -677,21 +676,17 @@ export async function consumeTagRequestImpl({ tagId, targetCharacterId }) {
     throw new UserError("Use the Mulligan button.");
   }
 
-  // Two more that cannot be drunk from here, for the reason the Mulligan gives:
-  // the generic path below reads `consumesInto`, and neither of these turns
-  // into a tag at all. One asks who you are whispering to, the other where you
-  // are going, so both come in through their own button on the Actions grid
-  // and spend the bottle there. Without these branches the generic path would
-  // swallow either one for nothing.
-  if (held.tag.slug === RAVEN_DRAUGHT_SLUG) {
-    throw new UserError("Use the Send Message button.");
-  }
+  // One more that cannot be drunk from here, for the reason the Mulligan gives:
+  // the generic path below reads `consumesInto`, and this one turns into no
+  // tag at all. It asks where you are going, so it comes in through its own
+  // button on the Actions grid and spends the stone there. Without this branch
+  // the generic path would swallow it for nothing.
   if (held.tag.slug === STEPSTONE_SLUG) {
     throw new UserError("Use the Stepstone button.");
   }
 
   // Administerable: the item's `cures` intersects what a target holds, or
-  // it's flagged `administerable` outright (Mercy, which cures nothing on a
+  // it's flagged `administerable` outright (an item that cures nothing on a
   // list but stabilizes all the same) — never a bare force-feed. Hoisted
   // once here: the targeted-administer gate below and the cure-application
   // pass further down both read this same list, and used to compute it
@@ -780,7 +775,7 @@ export async function consumeTagRequestImpl({ tagId, targetCharacterId }) {
   // family (fitting is surgery, and the Expert's scarce Move is the fee —
   // this replaces any separate fitting ⬢). A synthetic tag prices the fixed
   // half, since the fee is a flat administer cost, never the ITEM's own
-  // craft requirementTurns (Mercy's craft cost has nothing to do with
+  // craft requirementTurns (a cure's craft cost has nothing to do with
   // fitting it onto somebody). Priced and checked here for a fast fail, and
   // spent for real inside the transaction below, same as every other budget
   // craft. With no turn open there is nothing to bill and nothing to file —
@@ -938,7 +933,7 @@ export async function consumeTagRequestImpl({ tagId, targetCharacterId }) {
     // would look successful and cure nothing. The target row is already
     // locked, above; re-read its held tags under that lock before touching
     // them. Only re-verified when this item's own gate depended on the
-    // intersection — an `administerable` item like Mercy has nothing to
+    // intersection — an `administerable` item has nothing to
     // lose by curing nothing, race or not, so it never refuses here.
     let curedHeldNow = curedHeld;
     if (administered) {
@@ -1962,8 +1957,8 @@ export async function tortureCharacterRequestImpl({ targetCharacterId }) {
   // BELOW requireFreeMove on purpose, so the attempt costs the torturer their
   // Move. Above it, this was a free probe: anyone could test a bound target for
   // a hidden tag (`visible: false`) at no cost at all and read the answer off
-  // the refusal. Spending the Move matches pain-immunity, which lets the
-  // torturer roll and waste it. The target's mood and the −40 are still spared.
+  // the refusal. The torturer rolls and wastes the Move either way. The
+  // target's mood and the −40 are still spared.
   if (target.tags.some((ct) => ct.tag.slug === IMPERTURBABLE_SLUG))
     throw new UserError(
       `${target.name} looks back at you, entirely unbothered. There is nothing here to break.`,
@@ -2031,7 +2026,7 @@ export async function tortureCharacterRequestImpl({ targetCharacterId }) {
   const outcome = result.success ? "they broke" : "they held out";
   await prisma.$transaction(async (tx) => {
     await consumeInspiredIfUsed(tx, character.id, tortureRoll.source);
-    // −40, or nothing under Pain Immunity / an Opium High, which are ×0 multipliers
+    // −40, or nothing under Rage, which is a ×0 multiplier
     // (MOOD.md §6, TORTURE.md §4). Lands on a failed torture too — being worked over
     // and holding out still costs you.
     await applyMood(tx, target.id, { kind: "TORTURED" });
@@ -2376,7 +2371,7 @@ export async function brandCharacterRequestImpl({ targetCharacterId, description
         stackable: achingTag.stackable,
       });
       await addToStack(tx, target.id, grant.tag.id, 1, { source: "EVENT", stackable: false });
-      // −40, or nothing under Pain Immunity / an Opium High (MOOD.md §6) —
+      // −40, or nothing under Rage (MOOD.md §6) —
       // the same two rows that zero TORTURED.
       await applyMood(tx, target.id, { kind: "BRANDED" });
       await logAudit(tx, {
@@ -3323,100 +3318,6 @@ export async function birdReplyRequestImpl({ birdMessageId, tagId }) {
   await afterInventoryChange(result.characterIds);
   revalidateAll();
   return { ok: true, line: result.line };
-}
-
-// ---- The Raven Draught ---------------------------------------------------
-//
-// The second crossing of zone isolation, after the Bird (docs/systemdocs/
-// BIRD.md). A brewed bottle, spent on one sentence to one person anywhere in
-// Ravenheart, with no guess to get right and no reply coming back.
-//
-// It is allowed to be certain where the Bird is not, and the reason is the
-// whole of BIRD.md §2: the Bird's delayed, identically-worded failure exists
-// so nobody can use it to ask "is this person alive". This asks nothing. It
-// reports "Sent." every single time — to the living, to the dead, to somebody
-// who logged off in week one — so the sender learns exactly nothing they did
-// not already know. The truth goes in the audit row, for a GM, and nowhere a
-// player can read it.
-//
-// Declared here rather than in db/lib for the reason MULLIGAN_SLUG gives: one
-// bespoke consumable, one place that names it.
-const RAVEN_DRAUGHT_SLUG = "raven-draught";
-
-// Bascinet's words, verbatim, so no dagger.
-function whisperDm(message) {
-  return `You hear a whisper in your mind: ${message}`;
-}
-
-export async function whisperRequestImpl({ recipientId, message: rawMessage }) {
-  const { session, character } = await requireCharacter({ needs: ACT });
-
-  const held = character.tags.find(
-    (ct) => ct.tag.slug === RAVEN_DRAUGHT_SLUG && ct.quantity > 0,
-  );
-  if (!held) throw new UserError("You aren't carrying a Raven Draught.");
-
-  const message = String(rawMessage ?? "").trim().slice(0, WHISPER_MAX);
-  if (!message) throw new UserError("Say something first.");
-
-  const targetId = String(recipientId ?? "");
-  if (!targetId) throw new UserError("Pick someone.");
-  if (targetId === character.id) {
-    throw new UserError("You already know what you were going to say.");
-  }
-  // Loaded WITHOUT a status filter, the way the Bird loads its recipient: a
-  // query that could only find the living would answer the question this
-  // whole action is built not to answer.
-  const recipient = await prisma.character.findUnique({
-    where: { id: targetId },
-    select: { id: true, name: true, status: true, discordUserId: true },
-  });
-  if (!recipient) throw new UserError("Nobody by that name.");
-
-  const delivered = recipient.status === "ALIVE";
-  const openTurn = await getOpenTurn();
-  const restore = {
-    tagId: held.tagId,
-    source: held.source,
-    expiresTurn: held.expiresTurn,
-    quantity: 1,
-  };
-
-  await prisma.$transaction(async (tx) => {
-    // The bottle was read outside this transaction — lock before spending it,
-    // or two submits in flight both see one draught and send two whispers.
-    await lockCharacter(tx, character.id);
-    const stillHeld = await tx.characterTag.findFirst({
-      where: { characterId: character.id, tagId: held.tagId, quantity: { gt: 0 } },
-      select: { id: true },
-    });
-    if (!stillHeld) throw new UserError("You aren't carrying a Raven Draught.");
-    await dropCharacterTag(tx, character.id, held.tagId, 1);
-    await logAudit(tx, {
-      actorDiscordUserId: session.discordUserId,
-      actionType: "request_whisper",
-      targetCharacterId: recipient.id,
-      turnId: openTurn?.id ?? null,
-      details: {
-        restore,
-        recipientId: recipient.id,
-        recipientName: recipient.name,
-        message,
-        // The one place the outcome is written down. The sender is never told.
-        delivered,
-      },
-    });
-  });
-
-  // Post-commit, and only to somebody alive to hear it (ARCHITECTURE.md §5).
-  if (delivered) {
-    notifyCharacter(recipient, whisperDm(message), { source: RAVEN_DRAUGHT_SLUG });
-  }
-
-  await afterInventoryChange(character.id);
-  revalidateAll();
-  // Identical either way. See the note at the top of this section.
-  return { ok: true };
 }
 
 // ---- The Stepstone -------------------------------------------------------

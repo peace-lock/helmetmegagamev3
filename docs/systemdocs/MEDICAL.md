@@ -26,13 +26,13 @@ same request with a target.
 
 **`cures` is an intersection test, not a requirement.** `consumeTagRequestImpl`
 reads the target's held tags and cures whichever ones the item's `cures` list
-names — White Honey (`cures: [poisoned, envenomated, phrygian-toxin]`) cures
-every one of those three a patient happens to be holding at once, not just the
-first. An item with a non-empty `cures` list that intersects nothing the
+names — White Honey (`cures: [poisoned, envenomated, phrygian-toxin, choking]`)
+cures every one of those four a patient happens to be holding at once, not just
+the first. An item with a non-empty `cures` list that intersects nothing the
 target holds is refused (`"X isn't holding anything Y treats."`) — **unless**
-the item also carries `administerable: true` (Mercy), which is the one item
-that stabilizes without curing a named list: it always succeeds regardless of
-what the target holds.
+the item carries `administerable: true`, which always succeeds regardless of
+what the target holds. Nothing in the catalog sets it right now; the flag stays
+for the next item that stabilizes without naming a list.
 
 **Administering to someone else is gated where self-consume is not.**
 Consuming from your own sheet has never needed ACT (TAGS.md §5f) — the whole
@@ -67,8 +67,8 @@ target's row is locked (sorted-id order with the actor's, to avoid a
 deadlock) and the intersection is re-verified under that lock before anything
 is cured. The loser gets `"X was already treated for that."` instead of a
 phantom success — but only when the item's own gate *depended* on the
-intersection: an `administerable` item like Mercy has nothing to lose either
-way, so it never refuses here.
+intersection: an `administerable` item has nothing to lose either way, so it
+never refuses here.
 
 ## 2. `administerSkill`: the one exception to "self-consume is never ACT-gated"
 
